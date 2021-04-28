@@ -5,9 +5,13 @@
 </head>
 <body>
 <form id="form" action="">
+    <div class = "group">
     <label for="input">Name</label>
     <input id="input" autocomplete="off" />
+    </div>
+    <div class = "group">
     <button>submit</button>
+    </div>
     <ul id="messages"></ul>
 </form>
 <script src="/socket.io/socket.io.js"></script>
@@ -33,6 +37,7 @@
   });
 
   form.addEventListener('input',function(e){
+    e.preventDefault();
     if(input.value){
       socket.emit('complete',input.value)
     }
