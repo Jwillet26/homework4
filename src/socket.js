@@ -1,4 +1,5 @@
 const xss = require('xss');
+
 const controller = require('../controller/controller');
 
 module.exports = (io) => {
