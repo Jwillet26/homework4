@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<form id="form" action="">
+    <label for="input">Name</label>
+    <input id="input" autocomplete="off" />
+    <button>submit</button>
+    <ul id="messages"></ul>
+</form>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+  const socket = io();
+
+  const messages = document.getElementById('messages');
+  const form = document.getElementById('form');
+  const input = document.getElementById('input');
+
+  function clear(){
+    while (messages.firstChild){
+      messages.removeChild(messages.firstChild);
+    }
+  }
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (input.value) {
+      socket.emit('message', input.value);
+      input.value = '';
+    }
+  });
+
+  form.addEventListener('input',function(e){
+    if(input.value){
+      socket.emit('complete',input.value)
+    }
+  });
+
+  socket.on('complete', async (msg) => {
+    clear();
+    msg.forEach((element) =>{
+      const item = document.createElement('li');
+      item.textContent = element.name;
+      messages.appendChild(item);
+    });
+  });
+
+</script>
+
+</body>
+
+<script type="text/javascript" src="index.js"></script>
+</html>

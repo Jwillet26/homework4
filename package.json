@@ -1,0 +1,33 @@
+{
+  "name": "homework4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/eslint **/*.js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jwillet26/homework4.git"
+  },
+  "author": "John Willet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jwillet26/homework4/issues"
+  },
+  "homepage": "https://github.com/Jwillet26/homework4#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-mongo-sanitize": "^2.0.2",
+    "mongoose": "^5.12.5",
+    "socket.io": "^4.0.1",
+    "xss": "^1.0.8"
+  },
+  "devDependencies": {
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}
