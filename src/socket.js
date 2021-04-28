@@ -4,9 +4,8 @@ const controller = require('../controller/controller');
 
 module.exports = (io) => {
   io.on('connection', (socket) => {
-    socket.on('message', async (msg) => {
-      let input = null;
-      input = await controller.sendInput(xss(msg));
+    socket.on('message', async (nameInput) => {
+      const input = await controller.sendInput(xss(nameInput));
       socket.emit('message', input.name);
     });
     socket.on('complete', async (string) => {
